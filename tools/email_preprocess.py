@@ -1,14 +1,29 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on  Thu Aug  9 23:43:32 2018
 
+@author : gaurav gahukar
+        : caffeine110
+
+AIM     : (p) TO Impliment UDACITY MiniProject
+        : (s) Email Classification to predict Author of the Email
+"""
+
+
+#impotring required libraries 
 import pickle
 #import cPickle
 import _pickle as cPickle
 #import numpy
 
+#importing sklern library fucntions
 from sklearn import cross_validation
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
+
+#defination of preprocessor funcion to preprocess pkl files
 def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/email_authors.pkl"):
     """ 
         this function takes a pre-made list of email texts (by default word_data.pkl)
@@ -37,9 +52,6 @@ def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/ema
     words_file_handler.close()
 
 
-     
-
-
     ### test_size is the percentage of events assigned to the test set
     ### (remainder go into training)
     features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(word_data, authors, test_size=0.1, random_state=42)
@@ -63,8 +75,10 @@ def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/ema
     features_train_transformed = selector.transform(features_train_transformed).toarray()
     features_test_transformed  = selector.transform(features_test_transformed).toarray()
 
+
     ### info on the data
     print("no. of Chris training emails: {} ".format(sum(labels_train)))
     print("no. of Sara training emails: {} ".format(len(labels_train)-sum(labels_train)))
     
+    # returning four parameters to the function call
     return features_train_transformed, features_test_transformed, labels_train, labels_test

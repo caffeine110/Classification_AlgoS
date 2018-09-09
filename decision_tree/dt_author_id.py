@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
-Created on  Thu Aug  9 23:43:32 2018
+Created on Thu  Aug 9 23:43:32 2018
 
 @author : gaurav gahukar
         : caffeine110
@@ -16,23 +17,17 @@ AIM     : (p) TO Impliment UDACITY MiniProject ( Naive Bayes )
           J K Rolling wrote that book. 
 """
 
-
 """ 
-    This is the code to accompany the Lesson 1 (Naive Bayes) mini-project. 
+    This is the code to accompany the Lesson 3 (decision tree) mini-project.
 
-    Use a Naive Bayes Classifier to identify emails by their authors
-    
-    authors and labels:
+    Use a Decision Tree to identify emails from the Enron corpus by author:    
     Sara has label 0
     Chris has label 1
 """
 
-
-#importing required libraries
+    
 import sys
 from time import time
-
-#Set the working directory
 sys.path.append("../tools/")
 from email_preprocess import preprocess
 
@@ -44,22 +39,22 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 
 
-#import GaussianNB
-from sklearn.naive_bayes import GaussianNB
+#importing sklearn
+from sklearn import tree
 
-#initialising classifier
-gnb_classifier = GaussianNB()
+#initialising dtc classifier
+dtc_classifier = tree.DecisionTreeClassifier()
 
-#fitting data to the classifer
-gnb_classifier.fit(features_train, labels_train)
+#fitting data to the classifier
+dtc_classifier.fit(features_train, labels_train)
 
 
+#prediction of author
+author_pred = dtc_classifier.predict(features_test)
 
+#importing accuracy score
 from sklearn.metrics import accuracy_score
-#prediction
-author_pred = gnb_classifier.predict(features_test)
 
-
-#printing the accuracy
+#printing the accuracy scores
 print(accuracy_score(labels_test, author_pred))
-print(gnb_classifier.score(features_test, labels_test))
+print(dtc_classifier.score(features_test, labels_test))
