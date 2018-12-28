@@ -1,16 +1,16 @@
 # Classification_AlgoS
-Machine Learning Algorithms for solving classification problems
+## Machine Learning Algorithms for solving classification problems
 
 I have implimented different Classification algorithms and checked their accuracy, and found that each one performs different when it comes to size of data, exicution time, training time and accuracy so choose accourding to the problem statement.
 
 
-Classification Algorithms in Machine Learning…
+## Classification Algorithms in Machine Learning…
 What is Classification?
 Classification is technique to categorise our data into a desired and distinct number of classes where we can assign label to each class.
 
 Applications of Classification are : speech recognition, handwriting recognition, bio metric identification, document classification etc.
 
-Classifiers can be:
+### Classifiers can be:
 Binary classifiers: Classification with only 2 distinct classes or with 2 possible outcomes
 
 example: Male and Female
@@ -29,7 +29,7 @@ example: classification of types of crops
 
 example: classification of mood/feelings in songs/music
 
-1). Naive Bayes (Classifier):
+## 1). Naive Bayes (Classifier):
 Naive Bayes is a probabilistic classifier inspired by the Bayes theorem. Under a simple assumption which is the attributes are conditionally independent.
 
 
@@ -49,7 +49,8 @@ Initialise the classifier to be used.
 Train the classifier: All classifiers in scikit-learn uses a fit(X, y) method to fit the model(training) for the given train data X and train label y.
 Predict the target: Given an non-label observation X, the predict(X) returns the predicted label y.
 Evaluate the classifier model
-2). Support Vector Machine:
+
+## 2). Support Vector Machine:
 Definition: Support vector machine is a representation of the training data as points in space separated into categories by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.
 
 Advantages: Effective in high dimensional spaces and uses a subset of training points in the decision function so it is also memory efficient.
@@ -72,7 +73,7 @@ There are three main parameters which we could play with when constructing a SVM
 Type of kernel
 Gamma value
 C value
-3). K-NEAREST NEIGHBOUR (KNN):
+## 3). K-NEAREST NEIGHBOUR (KNN):
 kNN classfied an object by a majority vote of the object’s neighbours, in the space of input parameter. The object is assigned to the class which is most common among its k (an integer specified by human) nearest neighbour.
 
 It is a non-parametric, lazy algorithm. It’s non-parametric since it does not make any assumption on data distribution (the data does not have to be normallly distributed). It is lazy since it does not really learn any model and make generalization of the data (It does not train some parameters of some function where input X gives output y).
@@ -87,7 +88,7 @@ Advantages: This algorithm is simple to implement, robust to noisy training data
 
 Disadvantages: Need to determine the value of K and the computation cost is high as it needs to computer the distance of each instance to all the training samples.
 
-4). Decision Tree
+## 4). Decision Tree
 Given a data of attributes together with its classes, a decision tree produces a sequence of rules that can be used to classify the data.
 
 Description: Decision Tree, as it name says, makes decision with tree-like model. It splits the sample into two or more homogeneous sets (leaves) based on the most significant differentiators in your input variables. To choose a differentiator (predictor), the algorithm considers all features and does a binary split on them (for categorical data, split by cat; for continuous, pick a cut-off threshold). It will then choose the one with the least cost (i.e. highest accuracy), and repeats recursively, until it successfully splits the data in all leaves (or reaches the maximum depth).
@@ -98,7 +99,7 @@ Advantages: Decision Tree is simple to understand and visualise, requires little
 
 Disadvantages: Decision tree can create complex trees that do not generalise well, and decision trees can be unstable because small variations in the data might result in a completely different tree being generated.
 
-5). Random Forest
+## 5). Random Forest
 Random forest is an ensemble model that grows multiple tree and classify objects based on the “votes” of all the trees. i.e. An object is assigned to a class that has most votes from all the trees. By doing so, the problem with high bias (overfitting) could be alleviated.( — from Kaggle).
 
 Image result for diagram for random forest
